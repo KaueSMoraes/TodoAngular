@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>{{ title }}</h1> <!-- Renderizando a propriedade title -->
+  <div class="input-container">
+    <input [(ngModel)]="newTodo" placeholder="Add new task" />
+    <button (click)="addTodo()">Add</button>
+  </div>
+  <ul>
+    <li *ngFor="let todo of todos; let i = index" [class.completed]="todo.completed">
+      <span (click)="toggleComplete(todo)">{{ todo.task }}</span>
+      <button class="delete-btn" (click)="deleteTodo(i)">Delete</button>
+    </li>
+  </ul>
+</div>
